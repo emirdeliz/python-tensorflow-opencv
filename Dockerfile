@@ -28,11 +28,6 @@ RUN sudo apt-get -y update && apt-get install -y \
   openssh-client \
   unzip
 
-# RUN sudo apt-get -y install libavcodec-dev libavformat-dev libswscale-dev \
-#   libdc1394-22-dev libxine2-dev libv4l-dev libatlas-base-dev \
-#   libfaac-dev libmp3lame-dev libtheora-dev libvorbis-dev libxvidcore-dev \
-#   libopencore-amrnb-dev libopencore-amrwb-dev x264 v4l-utils libsm6 libxext6
-
 # For build OpenCV
 # Clone, build and install OpenCV
 RUN cd /opt \
@@ -55,6 +50,8 @@ RUN cd /opt \
   && make -j"$(nproc)" \ 
   && make install \
   && rm -rf /build
+
+CMD python -c "import tensorflow as tf; print(tf.constant(42) / 2 + 2)"
 
 RUN mkdir source
 WORKDIR /source

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build --no-cache -t emirdeliz/python-opencv-tensorflow .
+docker build --platform=linux/arm64/v8 --no-cache -t emirdeliz/python-opencv-tensorflow .
